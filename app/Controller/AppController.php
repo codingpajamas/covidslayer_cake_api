@@ -31,4 +31,30 @@ App::uses('Controller', 'Controller');
  * @link		https://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	public $components = array(
+	    'Auth' => array(
+	        'authenticate' => array(
+	        	/*
+	            'JwtAuth.JwtToken' => array(
+	                'fields' => array(
+	                    'username' => 'username',
+	                    'password' => 'password',
+	                    'token' => 'public_key',
+	                ),
+	                'parameter' => '_token',
+	                'userModel' => 'User',
+	                // 'scope' => array('User.active' => 1),
+	                'pepper' => 'secret_po',
+	            ),
+	    		*/
+	            'Form' => array(
+	                // 'passwordHasher' => 'Blowfish'
+	            )
+	        ),
+	    ),
+	);
+
+	public function beforeFilter() {
+		$this->Auth->allow('register', 'login', 'decode');
+	}
 }
