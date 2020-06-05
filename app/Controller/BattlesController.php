@@ -83,7 +83,6 @@ class BattlesController extends AppController {
         $this->user = $this->getUser($this->request->query('_token'));  
         
         
-
         // create a battle  logs and return enemy info
         if($this->user && isset($this->battle['Battle']['id'])) {
             $userAtk = null;

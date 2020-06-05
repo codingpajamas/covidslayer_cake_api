@@ -34,7 +34,7 @@ class UsersController extends AppController {
 
 			// didn't validate logic
 		    $errors = $this->User->validationErrors;
-		    $this->toJson($errors);
+		    $this->toJson($errors, 422);
         }
 
         $this->toJson(['status'=>'Error'], 404);
